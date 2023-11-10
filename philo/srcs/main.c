@@ -41,7 +41,8 @@ int	check_args(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 	{
 		printf("Invalid number of argument.\n"
-			"Usage: ./philo <nb_p> <death_time> <eating_time> [nb_meal]\n");
+			"Usage: ./philo <nb_p> <death_time>"
+			" <eating_time> <sleep_time> [nb_meal]\n");
 		return (0);
 	}
 	while (argv[++i])

@@ -42,6 +42,15 @@ void	p_think(t_philo *philo)
 
 void	p_eat(t_philo *philo)
 {
+	if (philo->data->philo_number == 1)
+	{
+		p_print("has taken a fork\n", philo, 1);
+		pthread_mutex_lock(&(philo->data->stat));
+		philo->data->status = 0;
+		p_print("died\n", philo, 0);
+		pthread_mutex_unlock(&(philo->data->stat));
+		return ;
+	}
 	pthread_mutex_lock(&(philo->data->philos[philo->id - 1].fork));
 	p_print("has taken a fork\n", philo, 1);
 	pthread_mutex_lock(&(philo->data->philos[philo->id
